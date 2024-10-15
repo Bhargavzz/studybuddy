@@ -31,7 +31,7 @@ DEBUG = False  # Change to False for production
 
 
 
-ALLOWED_HOSTS = ['your-vercel-app.vercel.app']  # Update with your Vercel app's URL
+ALLOWED_HOSTS = ['your-vercel-app.vercel.app', 'localhost', '127.0.0.1']  # Update with your Vercel app's URL
 
 
 # Application definition
@@ -140,7 +140,7 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'  # Directory for collected static files
 MEDIA_URL = '/media/'  # URL for media files
 MEDIA_ROOT = BASE_DIR / 'mediafiles'  # Directory for media files
 STATICFILES_DIRS = [
-       'static'
+      BASE_DIR/ 'base/static',
 ]
 
 
