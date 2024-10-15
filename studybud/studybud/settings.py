@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -20,12 +20,18 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-d4*n4t)962(5d4&wa4^ip1+7#qm($5_8_5dms^4g*+pqe+b24d'
+
+SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'django-insecure-d4*n4t)962(5d4&wa4^ip1+7#qm($5_8_5dms^4g*+pqe+b24d')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False  # Change to False for production
 
-ALLOWED_HOSTS = []
+
+
+
+
+
+ALLOWED_HOSTS = ['your-vercel-app.vercel.app']  # Update with your Vercel app's URL
 
 
 # Application definition
@@ -128,8 +134,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
-MEDIA_URL = '/images/'
+# Static files (CSS, JavaScript, Images)
+STATIC_URL = '/static/'  # Ensure correct URL for static files
+STATIC_ROOT = BASE_DIR / 'staticfiles'  # Directory for collected static files
+MEDIA_URL = '/media/'  # URL for media files
+MEDIA_ROOT = BASE_DIR / 'mediafiles'  # Directory for media files
 STATICFILES_DIRS = [
        'static'
 ]
