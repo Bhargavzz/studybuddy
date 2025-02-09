@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'django-insecure-d4*n4t)962(5d4&wa4^ip1+7#qm($5_8_5dms^4g*+pqe+b24d')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True  # Change to False for production
+DEBUG = False  # Change to False for production
 
 
 
