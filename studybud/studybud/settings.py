@@ -31,7 +31,7 @@ DEBUG = True  # Change to False for production
 
 
 
-ALLOWED_HOSTS = ['your-vercel-app.vercel.app', 'localhost', '127.0.0.1']  # Update with your Vercel app's URL
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
