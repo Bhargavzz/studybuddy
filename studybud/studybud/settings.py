@@ -37,6 +37,7 @@ ALLOWED_HOSTS = ['your-vercel-app.vercel.app', 'localhost', '127.0.0.1']  # Upda
 # Application definition
 
 INSTALLED_APPS = [
+    'whitenoise.runserver_nostatic',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -44,7 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     
-    'base.apps.BaseConfig',
+    'base.apps.BaseConfig', 
     
     'rest_framework',
     'corsheaders',
@@ -54,6 +55,7 @@ AUTH_USER_MODEL = 'base.User'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     
     'corsheaders.middleware.CorsMiddleware',
     
@@ -135,13 +137,18 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 # Static files (CSS, JavaScript, Images)
-STATIC_URL = '/static/'  # Ensure correct URL for static files
-STATIC_ROOT = BASE_DIR / 'staticfiles'  # Directory for collected static files
+
 MEDIA_URL = '/media/'  # URL for media files
 MEDIA_ROOT = BASE_DIR / 'mediafiles'  # Directory for media files
+
+STATIC_URL = '/static/'
+
 STATICFILES_DIRS = [
-      BASE_DIR/ 'base/static',
+    os.path.join(BASE_DIR , 'static'),  # Ensure this path exists
 ]
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # For `collectstatic`
+
 
 
 MEDIA_ROOT = BASE_DIR / 'static/images'
