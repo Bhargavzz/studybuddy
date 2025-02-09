@@ -23,5 +23,11 @@
       "src": "/(.*)",
       "dest": "studybud/wsgi.py"
     }
+  ],
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/studybud/wsgi.py"
+    }
   ]
 }
